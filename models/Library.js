@@ -1,4 +1,4 @@
-import { Book } from "./Book";
+import { Book } from "./Book.js";
 
 const STORAGE_KEY = "library_books";
 
@@ -9,22 +9,22 @@ export class Library {
     this.#books = this.#loadFromStorage();
   }
 
-  // Private method - load dari localStorage
+  // Private method — load dari localStorage
   #loadFromStorage() {
     try {
       const data = localStorage.getItem(STORAGE_KEY);
       if (!data) return [];
-      return JSON.parse(data).data(Book.fromJSON);
-    } catch (e) {
+      return JSON.parse(data).map(Book.fromJSON);
+    } catch (error) {
       console.error("Gagal load data:", error.message);
       return [];
     }
   }
 
-  // Private method - simpan ke localStorage
+  // Private method — simpan ke localStorage
   #saveToStorage() {
     try {
-      const data = this.#books.map((book) => book.toJSON());
+      const data = this.#books.map((book) => book.toJson());
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     } catch (error) {
       console.error("Gagal simpan data:", error.message);
@@ -48,7 +48,7 @@ export class Library {
 
   borrowBook(id) {
     const book = this.#findById(id);
-    book.return();
+    book.borrow();
     this.#saveToStorage();
   }
 
