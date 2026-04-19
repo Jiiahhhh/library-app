@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <h1>📚 Library Management System</h1>
+      </header>
+
+      <!-- Stats -->
+      <div class="stats-grid" id="statsGrid">
+        <!-- Dirender oleh JS -->
+      </div>
+
+      <!-- Form Tambah Buku -->
+      <div class="form-card">
+        <h2 class="form-title">Tambah Buku</h2>
+
+        <div class="form-group">
+          <label for="inputTitle">Judul Buku</label>
+          <input type="text" id="inputTitle" placeholder="Contoh: Clean Code" />
+        </div>
+
+        <div class="form-group">
+          <label for="inputAuthor">Penulis</label>
+          <input
+            type="text"
+            id="inputAuthor"
+            placeholder="Contoh: Robert C. Martin"
+          />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputYear">Tahun Terbit</label>
+            <input
+              type="number"
+              id="inputYear"
+              placeholder="Contoh: 2008"
+              min="1000"
+              max="2099"
+            />
+          </div>
+          <div class="form-group">
+            <label for="inputStock">Stok</label>
+            <input
+              type="number"
+              id="inputStock"
+              placeholder="Contoh: 3"
+              min="1"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputGenre">Genre</label>
+          <select id="inputGenre">
+            <option value="">-- Pilih Genre --</option>
+            <option value="Pemrograman">📖 Pemrograman</option>
+            <option value="Sains">🔬 Sains</option>
+            <option value="Matematika">📐 Matematika</option>
+            <option value="Sejarah">🏛️ Sejarah</option>
+            <option value="Sastra">🎭 Sastra</option>
+            <option value="Bisnis">💼 Bisnis</option>
+            <option value="Psikologi">🧠 Psikologi</option>
+            <option value="Lainnya">📦 Lainnya</option>
+          </select>
+        </div>
+
+        <p class="error-msg hidden" id="errorMsg"></p>
+        <button class="btn-add" id="btnAdd">+ Tambah Buku</button>
+      </div>
+
+      <!-- Search & Filter -->
+      <div class="search-bar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="🔍 Cari judul atau penulis..."
+        />
+        <select id="filterGenre">
+          <option value="">Semua Genre</option>
+          <option value="Pemrograman">📖 Pemrograman</option>
+          <option value="Sains">🔬 Sains</option>
+          <option value="Matematika">📐 Matematika</option>
+          <option value="Sejarah">🏛️ Sejarah</option>
+          <option value="Sastra">🎭 Sastra</option>
+          <option value="Bisnis">💼 Bisnis</option>
+          <option value="Psikologi">🧠 Psikologi</option>
+          <option value="Lainnya">📦 Lainnya</option>
+        </select>
+      </div>
+
+      <!-- Book List -->
+      <div class="list-card">
+        <div id="bookList">
+          <!-- Dirender oleh JS -->
+        </div>
+        <p class="empty-msg hidden" id="emptyMsg">
+          Belum ada buku di perpustakaan.
+        </p>
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
